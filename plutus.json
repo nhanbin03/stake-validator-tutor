@@ -1,0 +1,115 @@
+{
+  "preamble": {
+    "title": "nhanbin/staking-validator-demo",
+    "description": "Aiken contracts for project 'nhanbin/staking-validator-demo'",
+    "version": "0.0.0",
+    "plutusVersion": "v3",
+    "compiler": {
+      "name": "Aiken",
+      "version": "v1.1.17+c3a7fba"
+    },
+    "license": "Apache-2.0"
+  },
+  "validators": [
+    {
+      "title": "spending_validator.spending_validator.spend",
+      "datum": {
+        "title": "_datum",
+        "schema": {
+          "$ref": "#/definitions/Data"
+        }
+      },
+      "redeemer": {
+        "title": "_redeemer",
+        "schema": {
+          "$ref": "#/definitions/Data"
+        }
+      },
+      "parameters": [
+        {
+          "title": "staking_validator_hash",
+          "schema": {
+            "$ref": "#/definitions/cardano~1address~1Credential"
+          }
+        }
+      ],
+      "compiledCode": "5895010100229800aba2aba1aab9faab9eaab9dab9a48888896600264646644b30013370e900118031baa001899199119b8848000c8cc004004dd5980698071807180718071807180718059baa300d300b3754601a01044b30010018a40011337009001198010011807800a01a300a001300a300b00130073754003164014600e002600e6010002600e00260066ea801e29344d9590011",
+      "hash": "9dc98df196a67cfc1fb3f0fba14eaf16c2232e11c62e52739fcbe45b"
+    },
+    {
+      "title": "spending_validator.spending_validator.else",
+      "redeemer": {
+        "schema": {}
+      },
+      "parameters": [
+        {
+          "title": "staking_validator_hash",
+          "schema": {
+            "$ref": "#/definitions/cardano~1address~1Credential"
+          }
+        }
+      ],
+      "compiledCode": "5895010100229800aba2aba1aab9faab9eaab9dab9a48888896600264646644b30013370e900118031baa001899199119b8848000c8cc004004dd5980698071807180718071807180718059baa300d300b3754601a01044b30010018a40011337009001198010011807800a01a300a001300a300b00130073754003164014600e002600e6010002600e00260066ea801e29344d9590011",
+      "hash": "9dc98df196a67cfc1fb3f0fba14eaf16c2232e11c62e52739fcbe45b"
+    },
+    {
+      "title": "staking_validator.staking_validator.withdraw",
+      "redeemer": {
+        "title": "_redeemer",
+        "schema": {
+          "$ref": "#/definitions/Data"
+        }
+      },
+      "compiledCode": "585301010029800aba2aba1aab9eaab9dab9a4888896600264653001300600198031803800cc0180092225980099b8748010c01cdd500144c928980498041baa0028b200c180300098019baa0068a4d13656400401",
+      "hash": "4ab26c95029067185f709d140300cccb15b0b20bbd62a7e9aa2e2e10"
+    },
+    {
+      "title": "staking_validator.staking_validator.else",
+      "redeemer": {
+        "schema": {}
+      },
+      "compiledCode": "585301010029800aba2aba1aab9eaab9dab9a4888896600264653001300600198031803800cc0180092225980099b8748010c01cdd500144c928980498041baa0028b200c180300098019baa0068a4d13656400401",
+      "hash": "4ab26c95029067185f709d140300cccb15b0b20bbd62a7e9aa2e2e10"
+    }
+  ],
+  "definitions": {
+    "Data": {
+      "title": "Data",
+      "description": "Any Plutus data."
+    },
+    "aiken/crypto/ScriptHash": {
+      "title": "ScriptHash",
+      "dataType": "bytes"
+    },
+    "aiken/crypto/VerificationKeyHash": {
+      "title": "VerificationKeyHash",
+      "dataType": "bytes"
+    },
+    "cardano/address/Credential": {
+      "title": "Credential",
+      "description": "A general structure for representing an on-chain `Credential`.\n\n Credentials are always one of two kinds: a direct public/private key\n pair, or a script (native or Plutus).",
+      "anyOf": [
+        {
+          "title": "VerificationKey",
+          "dataType": "constructor",
+          "index": 0,
+          "fields": [
+            {
+              "$ref": "#/definitions/aiken~1crypto~1VerificationKeyHash"
+            }
+          ]
+        },
+        {
+          "title": "Script",
+          "dataType": "constructor",
+          "index": 1,
+          "fields": [
+            {
+              "$ref": "#/definitions/aiken~1crypto~1ScriptHash"
+            }
+          ]
+        }
+      ]
+    }
+  }
+}
