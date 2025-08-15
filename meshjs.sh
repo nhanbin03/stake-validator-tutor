@@ -11,5 +11,3 @@ cardano-cli conway transaction sign \
   --signing-key-file ~/clone/cardano-devnet/devnet/credentials/faucet.sk \
   --out-file transfer.tx.signed
 cardano-cli conway transaction submit --tx-file transfer.tx.signed
-
-export BLOCKFROST_PROJECT_ID=previewqPAxgIVtNWVYQ8Fp9z7eAiXeKDxocEfI
